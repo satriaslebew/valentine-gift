@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine Gift for My GF 💖</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #ffcccc, #ffe6e6);
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            color: #e91e63;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .message {
+            font-size: 1.5em;
+            margin: 20px auto;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        .photos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .photos img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .video {
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        /* ===== OPENING ===== */
+        #opening {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(to bottom, #ffb6c1, #ffe6e6);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            cursor: pointer;
+        }
+
+        #opening h1 {
+            font-size: 3em;
+            color: #e91e63;
+        }
+
+        #opening p {
+            font-size: 1.2em;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        #content {
+            display: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== ANIMASI BUNGA ===== */
+        .flowers {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .flower {
+            position: absolute;
+            top: -50px;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ===== OPENING ===== -->
+<div id="opening">
+    <h1>For You 💖</h1>
+    <p>Tap to start ✨</p>
+</div>
+
+<!-- ===== ISI WEB ===== -->
+<div id="content">
+
+    <div class="flowers" id="flowers"></div>
+
+    <h1>Happy Valentine's Day, Sayang! 💖</h1>
+
+    <div class="message">
+        haluuuwwww sayanggkuuuu 💕<br>
+        Ini valentine pertama kita ya hehee.<br>
+        Maaf ya di hari valentine ini aku gabisa ngasih apa apa ke kamu,<br>
+        but i make simple web for u and i hope u like this web.<br>
+        Loveee uu sayangkuuuuu 🫶🫶
+    </div>
+
+    <h2>Foto Kita</h2>
+    <div class="photos">
+        <img src="foto1.jpeg">
+        <img src="foto2.jpeg">
+        <img src="foto3.jpeg">
+        <img src="foto4.jpeg">
+        <img src="foto5.jpeg">
+        <img src="foto6.jpeg">
+        <img src="foto7.jpeg">
+        <img src="foto8.jpeg">
+        <img src="foto9.jpeg">
+        <img src="foto10.jpeg">
+        <img src="foto11.jpeg">
+        <img src="foto12.jpeg">
+        <img src="foto13.jpeg">
+        <img src="foto14.jpeg">
+        <img src="foto15.jpeg">
+        <img src="foto16.jpeg">
+        <img src="foto17.jpeg">
+        <img src="foto18.jpeg">
+    </div>
+
+    <h2>Video Kita</h2>
+    <div class="video">
+        <video autoplay muted loop playsinline style="width:100%; border-radius:10px;">
+            <source src="video.mp4" type="video/mp4">
+            Browser kamu tidak mendukung video.
+        </video>
+    </div>
+
+</div>
+
+<!-- ===== MUSIK ===== -->
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ===== SCRIPT ===== -->
+<script>
+    /* OPENING */
+    const opening = document.getElementById("opening");
+    const content = document.getElementById("content");
+    const music = document.getElementById("bgMusic");
+
+    opening.addEventListener("click", () => {
+        opening.style.display = "none";
+        content.style.display = "block";
+        music.volume = 0.4;
+        music.play();
+    });
+
+    /* ANIMASI BUNGA */
+    const flowersContainer = document.getElementById("flowers");
+    const emojis = ["🌸", "🌹", "💖", "💗", "💐"];
+
+    function createFlower() {
+        const flower = document.createElement("div");
+        flower.className = "flower";
+        flower.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        flower.style.left = Math.random() * 100 + "vw";
+        flower.style.fontSize = (20 + Math.random() * 20) + "px";
+        flower.style.animationDuration = (4 + Math.random() * 4) + "s";
+        flowersContainer.appendChild(flower);
+        setTimeout(() => flower.remove(), 8000);
+    }
+
+    setInterval(createFlower, 400);
+</script>
+
+</body>
+</html>
